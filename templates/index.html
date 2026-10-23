@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Wadeh · Document analyzer</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <script defer src="{{ url_for('static', filename='app.js') }}"></script>
+</head>
+<body>
+  <header class="topbar"><a class="brand" href="/" aria-label="Wadeh home"><span class="mark" aria-hidden="true">W</span> Wadeh</a><span class="tag">DOCUMENT ASSISTANT</span></header>
+  <main>
+    <section class="intro">
+      <span class="eyebrow">LESS JARGON. MORE CLARITY.</span>
+      <h1>Understand the<br>fine print.</h1>
+      <p>Turn complicated notices and official documents into a clear summary, practical steps, and dates that matter.</p>
+    </section>
+    <div class="workspace">
+      <section class="panel">
+        <div class="panel-heading"><span class="step">01</span><h2>Your document</h2></div>
+        <form method="post" enctype="multipart/form-data" id="analyze-form">
+          <label for="document">Paste your text</label>
+          <textarea id="document" name="document" dir="auto" maxlength="50000" placeholder="Paste a notice, government rule, or document here…" aria-describedby="text-help">{{ document }}</textarea>
+          <div class="text-meta" id="text-help"><span>Up to 50,000 characters</span><span id="character-count"></span></div>
+          <div class="upload"><label for="file">Or choose a text file</label><input id="file" name="file" type="file" accept=".txt,text/plain"><span class="hint">UTF-8 .txt · under 1 MB · use one source at a time</span></div>
+          <p class="privacy">Your document is sent to Groq to generate an explanation.</p>
+          {% if error %}<div class="error" role="alert">{{ error }}</div>{% endif %}
+          <button type="submit" id="analyze-button">Explain my document <span aria-hidden="true">↗</span></button>
+          <p id="progress" class="hint" role="status" hidden>Reading your document. This may take a moment…</p>
+        </form>
+      </section>
+      <section class="panel result-panel" aria-labelledby="result-title">
+        <div class="panel-heading"><span class="step">02</span><h2 id="result-title">The clear version</h2></div>
+        {% if result %}
+        <div class="result" dir="auto">{{ result }}</div>
+        {% else %}
+        <div class="empty-state"><span class="document-icon" aria-hidden="true">≡</span><h3>A little clarity goes a long way.</h3><p>Add your document and we’ll break it down into:</p><ul><li>A plain-language summary</li><li>A checklist of what to do</li><li>Deadlines and penalties mentioned</li></ul></div>
+        {% endif %}
+        <p class="disclaimer">AI explanations can contain mistakes. Check important details against the original document. This is not legal advice.</p>
+      </section>
+    </div>
+    <footer>Wadeh <span>Complex documents. Clear next steps.</span></footer>
+  </main>
+</body>
+</html>

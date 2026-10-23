@@ -1,0 +1,45 @@
+* { box-sizing: border-box; }
+:root { color-scheme: light; --ink: #203c36; --muted: #68746e; --green: #225c48; --line: #dce3da; }
+body { margin: 0; background: #f5f6f0; color: var(--ink); font-family: "Segoe UI", Arial, sans-serif; }
+.topbar { max-width: 1240px; margin: auto; padding: 26px 36px; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid var(--line); }
+.brand { display: flex; align-items: center; gap: 10px; color: var(--ink); text-decoration: none; font-size: 22px; font-weight: 650; letter-spacing: -1px; }
+.mark { background: var(--green); color: white; border-radius: 10px; width: 33px; height: 33px; display: grid; place-items: center; font-size: 23px; font-family: Georgia, serif; }
+.tag, .eyebrow { font-size: 11px; letter-spacing: 2px; font-weight: 650; }
+.tag { color: var(--muted); }
+main { max-width: 1240px; padding: 0 36px; margin: auto; }
+.intro { padding: 52px 0 34px; }
+.eyebrow { color: var(--green); }
+h1 { font-family: Georgia, "Times New Roman", serif; font-size: clamp(42px, 5vw, 66px); font-weight: 400; letter-spacing: -2px; line-height: 1.05; margin: 18px 0; }
+.intro p { max-width: 510px; color: var(--muted); font-size: 16px; line-height: 1.7; }
+.workspace { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; align-items: stretch; }
+.panel { background: #fff; border: 1px solid var(--line); border-radius: 18px; padding: 28px; min-width: 0; }
+.panel-heading { display: flex; gap: 12px; align-items: center; margin-bottom: 26px; }
+.step { color: var(--green); background: #eef3e9; padding: 7px; border-radius: 7px; font-size: 12px; font-weight: 600; }
+h2 { font-size: 18px; font-weight: 600; margin: 0; }
+label { display: block; font-size: 13px; font-weight: 600; margin-bottom: 10px; }
+textarea { width: 100%; min-height: 235px; resize: vertical; border: 1px solid var(--line); border-radius: 10px; background: #fbfcf9; padding: 16px; color: var(--ink); font: inherit; line-height: 1.6; }
+textarea::placeholder { color: #838d86; }
+:focus-visible { outline: 3px solid #83a891; outline-offset: 3px; }
+.text-meta { display: flex; justify-content: space-between; gap: 8px; margin-top: 8px; color: var(--muted); font-size: 11px; }
+.upload { margin-top: 24px; border: 1px dashed #c7d2c4; padding: 16px; border-radius: 10px; }
+input[type=file] { max-width: 100%; color: var(--muted); font: inherit; font-size: 12px; }
+input::file-selector-button { border: 1px solid var(--line); background: #f4f6ef; color: var(--ink); border-radius: 5px; padding: 7px 10px; margin-right: 10px; cursor: pointer; }
+.hint { display: block; color: var(--muted); font-size: 11px; margin-top: 10px; line-height: 1.6; }
+.privacy, .disclaimer { color: var(--muted); font-size: 12px; line-height: 1.6; }
+.privacy { margin: 20px 0 14px; }
+button { width: 100%; background: var(--green); color: #fff; border: 0; border-radius: 9px; padding: 15px 18px; font: inherit; font-weight: 600; cursor: pointer; display: flex; justify-content: space-between; }
+button:hover { background: #174734; }
+button:disabled { opacity: .65; cursor: wait; }
+.result-panel { display: flex; flex-direction: column; background: #fbfcf8; }
+.empty-state { flex: 1; display: flex; flex-direction: column; justify-content: center; align-items: flex-start; padding: 30px 20px; }
+.document-icon { font-size: 40px; line-height: 1; border: 1px solid var(--line); padding: 12px 16px; border-radius: 12px; color: #76907d; transform: rotate(-6deg); }
+h3 { font-family: Georgia, serif; font-size: 25px; font-weight: 400; margin: 25px 0 8px; }
+.empty-state p, .empty-state li { color: var(--muted); font-size: 14px; line-height: 1.9; }
+.empty-state p { margin: 0; }
+ul { padding-left: 18px; }
+.result { white-space: pre-wrap; overflow-wrap: anywhere; font-size: 15px; line-height: 1.85; flex: 1; }
+.disclaimer { border-top: 1px solid var(--line); margin: 22px 0 0; padding-top: 16px; }
+.error { background: #fff0eb; color: #8e3525; padding: 13px; margin: 12px 0; font-size: 13px; border-radius: 8px; }
+footer { display: flex; justify-content: space-between; color: var(--muted); font-size: 11px; padding: 30px 0; }
+[hidden] { display: none !important; }
+@media (max-width: 760px) { .workspace { grid-template-columns: 1fr; } main { padding: 0 18px; } .topbar { padding: 20px 18px; } .tag { display: none; } .intro { padding-top: 36px; } .panel { padding: 22px; } .empty-state { padding: 20px 0; } footer { gap: 20px; } }
